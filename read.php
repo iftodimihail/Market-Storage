@@ -10,16 +10,25 @@
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT PRODUCT_ID, PRODUCT_NAME, CATEGORY_NAME, SUPPLIER_NAME, PRODUCT_PRICE, DATE_FORMAT(STORAGE_DATE,'%d.%m.%Y') AS STORAGE_DATE
+        $sql_1 = "SELECT PRODUCT_ID, PRODUCT_NAME, CATEGORY_NAME, SUPPLIER_NAME, PRODUCT_PRICE, DATE_FORMAT(STORAGE_DATE,'%d.%m.%Y') AS STORAGE_DATE
 				FROM PRODUCTS P, CATEGORIES CAT, SUPPLIERS SUP
 				WHERE P.CATEGORY_ID = CAT.CATEGORY_ID AND
 				P.SUPPLIER_ID = SUP.SUPPLIER_ID AND
 				P.PRODUCT_ID = ?";
-        $q = $pdo->prepare($sql);
+		$sql_2 ="SELECT CONTACT_ID FROM SUPPLIERS
+				WHERE SUPPLIER_NAME = ?";
+				
+        $q = $pdo->prepare($sql_1);
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
+		
+		$query = $pdo->prepare($sql_2);
+		$query->execute(array($data['SUPPLIER_NAME']));
+		$contact_id = $query->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
     }
+	
+	
 ?>
  
 <!DOCTYPE html>
@@ -60,7 +69,7 @@
                         <label class="control-label">Distribuitor</label>
                         <div class="controls">
                             <label class="checkbox">
-                                <?php echo $data['SUPPLIER_NAME'];?>
+                                <a href="/MarketStorageApp/contact.php?contact_id=<?php echo $contact_id['CONTACT_ID']?>"> <?php echo $data['SUPPLIER_NAME'];?></a>
                             </label>
                         </div>
                       </div>

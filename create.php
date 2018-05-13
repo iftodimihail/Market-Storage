@@ -125,20 +125,38 @@
 			FROM CATEGORIES C, SUPPLIERS S
 			WHERE C.CATEGORY_NAME = '".$category."' AND
 			S.SUPPLIER_NAME LIKE '%".$supplier."%'";
-			echo $sql;
             $q = $pdo->query($sql);
             Database::disconnect();
 			header("Location: index.php");
         }
     }
+	else{
+		//get all categories
+		$pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $q = $pdo->prepare("SELECT category_name from categories");
+		$q->execute();
+		$categories = $q->fetchAll();
+		//print_r($categories);
+		
+		//get all suppliers
+		$pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $q = $pdo->prepare("SELECT supplier_name from suppliers");
+		$q->execute();
+		$suppliers = $q->fetchAll();
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
  
 <body>
@@ -171,7 +189,12 @@
                       <div class="control-group <?php echo !empty($categoryError)?'error':'';?>">
                         <label class="control-label">Categorie</label>
                         <div class="controls">
-                            <input name="category" type="text"  placeholder="Categorie" value="<?php echo !empty($category)?$category:'';?>">
+                            <select class="selectpicker" data-live-search="true">
+							  <?php 
+								foreach($categories as $cat)
+									echo "<option>".$cat['category_name']."</option>"; ?>
+							</select>
+
                             <?php if (!empty($categoryError)): ?>
                                 <span class="help-inline"><?php echo $categoryError;?></span>
                             <?php endif; ?>
@@ -180,7 +203,11 @@
 					  <div class="control-group <?php echo !empty($supplierError)?'error':'';?>">
                         <label class="control-label">Distribuitor</label>
                         <div class="controls">
-                            <input name="supplier" type="text"  placeholder="Distribuitor" value="<?php echo !empty($supplier)?$supplier:'';?>">
+                            <select class="selectpicker" data-live-search="true">
+							  <?php 
+								foreach($suppliers as $sup)
+									echo "<option>".$sup['supplier_name']."</option>"; ?>
+							</select>
                             <?php if (!empty($supplierError)): ?>
                                 <span class="help-inline"><?php echo $supplierError;?></span>
                             <?php endif; ?>
