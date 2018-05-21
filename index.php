@@ -5,17 +5,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/index.css">
 </head>
  
 <body>
-    <div class="container">
+    <div class="index_container">
             <div class="row">
                 <h3>Market Database</h3>
+				<div class="btn-create">
+                    <a href="create.php" class="btn btn-success">Adaugă un produs</a>
+                </div>
             </div>
             <div class="row">
-                <p>
-                    <a href="create.php" class="btn btn-success">Create</a>
-                </p>
                 <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
@@ -50,11 +51,11 @@
 								echo '<td>'. $row['PRODUCT_PRICE'] . '</td>';
 								echo '<td>'. $row['STORAGE_DATE'] . '</td>';
                                 echo '<td width=250>';
-                                echo '<a class="btn btn-primary" href="read.php?id='.$row['PRODUCT_ID'].'">Read</a>';
+                                echo '<a class="btn btn-primary" href="read.php?id='.$row['PRODUCT_ID'].'">Detalii</a>';
                                 echo ' ';
-                                echo '<a class="btn btn-success" href="update.php?id='.$row['PRODUCT_ID'].'">Update</a>';
+                                echo '<a class="btn btn-success" href="update.php?id='.$row['PRODUCT_ID'].'">Modifică</a>';
                                 echo ' ';
-                                echo '<a class="btn btn-danger" href="delete.php?id='.$row['PRODUCT_ID'].'">Delete</a>';
+                                echo '<a class="btn btn-danger" href="delete.php?id='.$row['PRODUCT_ID'].'">Șterge</a>';
                                 echo '</td>';
                                 echo '</tr>';
                                 echo '</tr>';

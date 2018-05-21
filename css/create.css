@@ -1,0 +1,49 @@
+.container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.span10{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.controls{
+	width: 520px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.form-control{
+	width: 220px;
+}
+.form-actions{
+	margin-top: 10px;
+}
+
+.control-group{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.label_div{
+	width: 220px;
+}
+
+.help-inline{
+	color: #ef2334;
+}

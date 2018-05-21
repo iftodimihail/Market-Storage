@@ -30,33 +30,33 @@
 </head>
  
 <body>
-    <div class="container">
+    <div style="padding-top: 40px" class="container">
      
                 <div class="span10 offset1">
-                    <div class="row">
+                    <div style="padding-left: 15px" class="row">
                         <h3>Distribuitor</h3>
                     </div>
                      
                     <div class="form-horizontal" >
                       <div class="control-group">
-                        <label class="control-label">Oraș</label>
-                        <div class="controls">
+                        <label class="control-label"><strong>Oraș:</strong></label>
+                        <div style="display: inline-block" class="controls">
                             <label class="checkbox">
                                 <?php echo $data['CITY'];?>
                             </label>
                         </div>
                       </div>
                       <div class="control-group">
-                        <label class="control-label">Adresa</label>
-                        <div class="controls">
+                        <label class="control-label"><strong>Adresa:</strong></label>
+                        <div style="display: inline-block" class="controls">
                             <label class="checkbox">
                                 <?php echo $data['STR_NAME'];?>
                             </label>
                         </div>
                       </div>
                       <div class="control-group">
-                        <label class="control-label">Număr de telefon</label>
-                        <div class="controls">
+                        <label class="control-label"><strong>Număr de telefon:</strong></label>
+                        <div style="display: inline-block" class="controls">
                             <label class="checkbox">
                                 <?php echo $data['PHONE'];?>
                             </label>

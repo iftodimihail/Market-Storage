@@ -31,19 +31,15 @@
 </head>
  
 <body>
-    <div class="container">
+    <div style="text-align: center" class="container">
      
                 <div class="span10 offset1">
-                    <div class="row">
-                        <h3>Șterge un produs</h3>
-                    </div>
-                     
                     <form class="form-horizontal" action="delete.php" method="post">
                       <input type="hidden" name="id" value="<?php echo $id;?>"/>
-                      <p class="alert alert-error">Ești sigur că dorești să ștergi acest produs??</p>
+                      <h3 class="alert alert-error">Ești sigur că dorești să ștergi acest produs?</h3>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-danger">Da</button>
-                          <a class="btn" href="index.php">Nu</a>
+                          <a class="btn btn-info" href="index.php">Nu</a>
                         </div>
                     </form>
                 </div>

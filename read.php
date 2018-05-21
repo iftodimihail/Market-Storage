@@ -35,62 +35,62 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
  
 <body>
-    <div class="container">
+    <div style="padding-top: 40px;" class="container">
      
                 <div class="span10 offset1">
-                    <div class="row">
+                    <div style="padding-left: 15px"class="row">
                         <h3>Produs</h3>
                     </div>
                      
                     <div class="form-horizontal" >
                       <div class="control-group">
-                        <label class="control-label">Nume</label>
-                        <div class="controls">
+                        <label class="control-label"><strong>Nume:</strong></label>
+                        <div style="display: inline-block" class="controls">
                             <label class="checkbox">
                                 <?php echo $data['PRODUCT_NAME'];?>
                             </label>
                         </div>
                       </div>
                       <div class="control-group">
-                        <label class="control-label">Categorie</label>
-                        <div class="controls">
+                        <label class="control-label"><strong>Categorie:</strong></label>
+                        <div style="display: inline-block" class="controls">
                             <label class="checkbox">
                                 <?php echo $data['CATEGORY_NAME'];?>
                             </label>
                         </div>
                       </div>
                       <div class="control-group">
-                        <label class="control-label">Distribuitor</label>
-                        <div class="controls">
+                        <label class="control-label"><strong>Distribuior:</strong></label>
+                        <div  style="display: inline-block" class="controls">
                             <label class="checkbox">
                                 <a href="/MarketStorageApp/contact.php?contact_id=<?php echo $contact_id['CONTACT_ID']?>"> <?php echo $data['SUPPLIER_NAME'];?></a>
                             </label>
                         </div>
                       </div>
 					  <div class="control-group">
-                        <label class="control-label">Preț</label>
-                        <div class="controls">
+                        <label class="control-label"><strong>Preț:</strong></label>
+                        <div  style="display: inline-block" class="controls">
                             <label class="checkbox">
                                 <?php echo $data['PRODUCT_PRICE'];?>
                             </label>
                         </div>
                       </div>
 					  <div class="control-group">
-                        <label class="control-label">Data de depozitare</label>
-                        <div class="controls">
+                        <label class="control-label"><strong>Data de depozitare:</strong></label>
+                        <div style="display: inline-block" class="controls">
                             <label class="checkbox">
                                 <?php echo $data['STORAGE_DATE'];?>
                             </label>
                         </div>
                       </div>
                         <div class="form-actions">
-                          <a class="btn" href="index.php">Back</a>
+                          <a class="btn btn-info" href="index.php">Înapoi</a>
                        </div>
                      
                       
